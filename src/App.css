@@ -1,38 +1,124 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  background: linear-gradient(90deg, rgb(33, 22, 94), rgb(60, 3, 8));
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 0;
+  padding: 0;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+label,
+input[type="radio"] {
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.headers {
+  width: 100%;
+  position: relative;
+  padding: 10px;
+}
+
+h1,
+h2 {
+  padding: 0;
+  margin: 0;
+}
+
+/*PETS TYPE BOX*/
+
+.petsTypeBox {
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
+  padding: 15px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.petsTypeBox > h2 {
+  margin-bottom: 5px;
+}
+
+/*PETS BOX*/
+
+.petsBox {
+  margin: 15px 0 15px 15px;
+  width: 400px;
+  position: relative;
+  float: left;
+}
+
+/*PETS BOX - TABLE*/
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table tbody,
+table thead {
+  display: block;
+  width: 100%;
+}
+
+table tbody {
+  overflow: overlay;
+  max-height: 500px;
+}
+
+@-moz-document url-prefix() {
+  table tbody {
+    overflow: scroll;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+tr {
+  width: 100%;
+}
+
+td {
+  cursor: pointer;
+}
+
+th,
+td {
+  width: 200px;
+  border: 3px solid white;
+  word-break: break-all;
+  padding: 10px;
+}
+
+/*PET INFO BOX*/
+
+.petInfoBox {
+  padding: 15px;
+  margin: 15px;
+  color: white;
+  width: 200px;
+  position: relative;
+  float: left;
+  line-height: 25px;
+  border: 3px solid white;
+}
+
+.petInfoBox > h1 {
+  margin-bottom: 10px;
+}
+
+.submit {
+  background: linear-gradient(90deg, rgb(60, 3, 8), rgb(33, 22, 94));
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 0px;
+  cursor: pointer;
+}
+
+.submit:hover {
+  /*background: linear-gradient(90deg, rgb(33, 22, 94), rgb(60, 3, 8));*/
+  background: white;
+  color: rgb(60, 3, 8);
 }

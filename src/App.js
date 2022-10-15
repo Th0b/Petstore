@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
 
-function App() {
+import PetList from "./components/PetList";
+import PetInfo from "./components/PetInfo";
+import PetsType from "./components/PetsType";
+import "./App.css";
+
+export default function App() {
+  useEffect(() => {
+    document.title = "Pets list";
+  });
+
+  const [chosen, setChosen] = useState(null);
+  const [type, setType] = useState("sold");
+  const [pet, setPet] = useState();
+  const [update, setUpdate] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="headers">
+        <h1>Pets list</h1>
+      </div>
+      <PetsType setType={setType} type={type} />
+      <PetList setChosen={setChosen} type={type} update={update} />
+      <PetInfo
+        chosen={chosen}
+        pet={pet}
+        setPet={setPet}
+        setUpdate={setUpdate}
+        update={update}
+      />
     </div>
   );
 }
-
-export default App;
