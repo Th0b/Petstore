@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import PetList from "./components/PetList";
 import PetInfo from "./components/PetInfo";
 import PetsType from "./components/PetsType";
-import "./App.css";
+import "./styles/styles.css";
 
 export default function App() {
   useEffect(() => {
