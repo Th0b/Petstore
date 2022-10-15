@@ -8,8 +8,14 @@ export default function PetInfo({ chosen, pet, setPet, setUpdate, update }) {
     if (chosen != null) getPet();
   }, [chosen]);
 
+  useEffect(() => {
+    if (chosen !== null) updatePet();
+  }, [pet]);
+
   const getPet = async () => {
     try {
+      setLoading(true);
+      console.log("Pet was fetched");
       const response = await fetch(
         "https://petstore.swagger.io/v2/pet/" + chosen
       );
@@ -29,6 +35,7 @@ export default function PetInfo({ chosen, pet, setPet, setUpdate, update }) {
 
   const updatePet = async () => {
     try {
+      console.log("Pet was updated");
       await fetch("https://petstore.swagger.io/v2/pet", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -45,13 +52,13 @@ export default function PetInfo({ chosen, pet, setPet, setUpdate, update }) {
     return <></>;
   } else if (loading) {
     return (
-      <div class="petInfoBox">
+      <div className="petInfoBox">
         <span>Loading...</span>
       </div>
     );
   } else if (error) {
     return (
-      <div class="petInfoBox">
+      <div className="petInfoBox">
         <span>Data fetch error - {error}</span>
       </div>
     );
@@ -121,10 +128,6 @@ export default function PetInfo({ chosen, pet, setPet, setUpdate, update }) {
           </label>
           <br />
         </div>
-        <br />
-        <button className="submit" onClick={() => updatePet()}>
-          Update
-        </button>
       </div>
     );
   }

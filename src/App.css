@@ -107,18 +107,3 @@ td {
 .petInfoBox > h1 {
   margin-bottom: 10px;
 }
-
-.submit {
-  background: linear-gradient(90deg, rgb(60, 3, 8), rgb(33, 22, 94));
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 0px;
-  cursor: pointer;
-}
-
-.submit:hover {
-  /*background: linear-gradient(90deg, rgb(33, 22, 94), rgb(60, 3, 8));*/
-  background: white;
-  color: rgb(60, 3, 8);
-}

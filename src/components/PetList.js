@@ -11,6 +11,7 @@ export default function PetList({ setChosen, type, update }) {
 
   const getPets = async () => {
     try {
+      console.log("Pet list was fetched");
       const response = await fetch(
         "https://petstore.swagger.io/v2/pet/findByStatus?status=" + type
       );
