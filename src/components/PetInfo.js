@@ -9,12 +9,11 @@ export default function PetInfo({ chosen, pet, setPet, setUpdate, update }) {
   }, [chosen]);
 
   useEffect(() => {
-    if (chosen !== null) updatePet();
-  }, [pet]);
+    if (chosen !== null && update === false) updatePet();
+  }, [update]);
 
   const getPet = async () => {
     try {
-      setLoading(true);
       console.log("Pet was fetched");
       const response = await fetch(
         "https://petstore.swagger.io/v2/pet/" + chosen
@@ -28,9 +27,10 @@ export default function PetInfo({ chosen, pet, setPet, setUpdate, update }) {
     }
   };
 
-  const changePet = async (newStatus) => {
+  const changePet = (newStatus) => {
     const newPet = { ...pet, status: newStatus };
     setPet(newPet);
+    setUpdate(false);
   };
 
   const updatePet = async () => {
@@ -44,7 +44,7 @@ export default function PetInfo({ chosen, pet, setPet, setUpdate, update }) {
     } catch (err) {
       console.error(err.message);
     } finally {
-      setUpdate(!update);
+      setUpdate(true);
     }
   };
 

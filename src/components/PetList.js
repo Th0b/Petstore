@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function PetList({ setChosen, type, update }) {
   useEffect(() => {
-    getPets();
+    if (update === true) getPets();
   }, [type, update]);
 
   const [pets, setPets] = useState([]);

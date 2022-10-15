@@ -13,7 +13,7 @@ export default function App() {
   const [chosen, setChosen] = useState(null);
   const [type, setType] = useState("sold");
   const [pet, setPet] = useState();
-  const [update, setUpdate] = useState(false);
+  const [update, setUpdate] = useState(true);
 
   return (
     <div className="App">
